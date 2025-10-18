@@ -15,7 +15,7 @@ function GenerateEmail() {
     setEmailResponse('');
 
     try {
-      const res = await fetch('http://localhost:8080/email/generate', {
+      const res = await fetch('https://ai-email-writer-backend-xf2f.onrender.com/email/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ emailContent: inputText, tone }),
