@@ -1,29 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function History() {
-  const [history, setHistory] = useState([]);
-
-  useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem('emailHistory') || '[]');
-    setHistory(stored);
-  }, []);
-
-  if (!history.length) return <p style={{ textAlign: 'center', marginTop: '20px' }}>No history yet.</p>;
-
+function Home() {
   return (
-    <div className="history-page">
-      <h2>Email History</h2>
-      <ul>
-        {history.map((item, idx) => (
-          <li key={idx}>
-            <p><strong>Input:</strong> {item.input}</p>
-            <p><strong>Tone:</strong> {item.tone}</p>
-            <p><strong>Response:</strong> {item.response}</p>
-          </li>
-        ))}
-      </ul>
+    <div className="home-page">
+      <h2>Welcome to Email Writer AI</h2>
+      <p>Create professional and friendly emails in seconds with AI.</p>
+      <Link to="/generate" className="home-btn">Generate Email</Link>
     </div>
   );
 }
 
-export default History;
+export default Home;

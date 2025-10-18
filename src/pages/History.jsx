@@ -8,7 +8,7 @@ function History() {
     setHistory(stored);
   }, []);
 
-  if (!history.length) return <p style={{ textAlign: 'center', marginTop: '20px' }}>No history yet.</p>;
+  if (!history.length) return <p style={{ textAlign: 'center', marginTop: '20px', fontStyle:'italic' }}>No history yet.</p>;
 
   return (
     <div className="history-page">

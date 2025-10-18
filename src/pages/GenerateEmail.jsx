@@ -27,7 +27,6 @@ function GenerateEmail() {
       // Save to localStorage history
       const history = JSON.parse(localStorage.getItem('emailHistory') || '[]');
       localStorage.setItem('emailHistory', JSON.stringify([{ input: inputText, tone, response: data }, ...history]));
-
     } catch (err) {
       console.error(err);
       alert('Error generating email.');

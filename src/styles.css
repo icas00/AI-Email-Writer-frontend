@@ -1,8 +1,10 @@
+/* Global Styles */
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   background: #fdfdfd;
   color: #333;
+  transition: background 0.3s, color 0.3s;
 }
 
 .app-container {
@@ -11,20 +13,25 @@ body {
   min-height: 100vh;
 }
 
-.main-content {
+main {
   flex: 1;
   padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
+/* Header & Footer */
 header, footer {
   background-color: #6200ea;
   color: white;
   padding: 15px 20px;
   text-align: center;
 }
+
 header h1 {
   margin: 0;
   font-size: 1.8rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 nav {
@@ -36,15 +43,67 @@ nav a {
   margin: 0 15px;
   text-decoration: none;
   font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 nav a:hover {
   text-decoration: underline;
+  transform: translateY(-2px);
 }
+
 footer p {
   margin: 0;
   font-size: 0.9rem;
 }
+
+/* Generate Email Page */
+.generate-email-page {
+  padding: 20px;
+}
+
+.generate-email-page h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.generate-email-page textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  margin-bottom: 15px;
+  transition: box-shadow 0.2s;
+}
+
+.generate-email-page textarea:focus {
+  box-shadow: 0 0 5px rgba(98,0,234,0.4);
+  outline: none;
+}
+
+.generate-email-page button {
+  padding: 10px 20px;
+  background: #6200ea;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.generate-email-page button:hover:not(:disabled) {
+  background: #3700b3;
+  transform: translateY(-2px) scale(1.02);
+}
+
+.generate-email-page button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Tone Selector */
 .tone-selector {
   margin-bottom: 15px;
 }
@@ -52,13 +111,32 @@ footer p {
 .tone-selector select {
   padding: 5px 10px;
   font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
 }
+
+.tone-selector select:hover,
+.tone-selector select:focus {
+  box-shadow: 0 0 5px rgba(98,0,234,0.4);
+  outline: none;
+}
+
+/* Email Card */
 .email-card {
   background: #f3f3f3;
   padding: 15px;
   border-radius: 10px;
   margin-top: 15px;
   position: relative;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.email-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
 .email-card button {
@@ -71,35 +149,57 @@ footer p {
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .email-card button:hover {
   background: #3700b3;
+  transform: translateY(-2px);
 }
-.generate-email-page textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  resize: vertical;
+
+/* History Page */
+.history-page {
+  padding: 20px;
+}
+
+.history-page h2 {
+  font-size: 1.8rem;
   margin-bottom: 15px;
+  text-align: center;
 }
 
-.generate-email-page button {
-  padding: 10px 20px;
-  background: #6200ea;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
+.history-page ul {
+  list-style: none;
+  padding: 0;
 }
 
-.generate-email-page button:disabled {
-  background: #ccc;
-  cursor: not-allowed;
+.history-page li {
+  background: #f9f9f9;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+
+.history-page li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.history-page li p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+.history-page p {
+  text-align: center;
+  font-style: italic;
+  margin-top: 20px;
+  color: #555;
+}
+
+/* Home Page */
 .home-page {
   text-align: center;
   padding: 50px 20px;
@@ -122,32 +222,10 @@ footer p {
   text-decoration: none;
   border-radius: 8px;
   font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .home-btn:hover {
   background: #3700b3;
-}
-
-.history-page {
-  padding: 20px;
-}
-
-.history-page ul {
-  list-style: none;
-  padding: 0;
-}
-
-.history-page li {
-  background: #f3f3f3;
-  margin-bottom: 15px;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-.history-page li p {
-  margin: 5px 0;
-}
-main {
-  min-height: calc(100vh - 120px); /* header+footer height */
-  padding: 20px;
+  transform: translateY(-2px);
 }
