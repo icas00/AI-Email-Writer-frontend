@@ -1,4 +1,4 @@
-frontend_readme: |
+
   # ✉️ Email Writer AI — Frontend (React + Vite)
 
   AI-powered Gmail assistant that helps you write quick, polite, and tone-aware replies — right inside Gmail.
@@ -9,7 +9,7 @@ frontend_readme: |
 
   ---
 
-  ### 🔹 Overview
+  ### Overview
   Built with **React (Vite)**, this frontend powers both:
   - The **Chrome/Brave extension** injected into Gmail.
   - The **standalone web app** for quick access.
@@ -18,22 +18,22 @@ frontend_readme: |
 
   ---
 
-  ### 🧠 Key Features
-  - 📨 Floating **“Generate Reply”** button inside Gmail  
-  - 🎯 Tone selector – *Professional / Friendly / Concise*  
-  - ⚡ Auto-copy generated text  
-  - 🗂️ Tabs for *History*, *Generator*
-  - 💾 LocalStorage for past replies (no server data)  
+  ###  Key Features
+  - Floating **“Generate Reply”** button inside Gmail  
+  - Tone selector – *Professional / Friendly / Concise*  
+  - Auto-copy generated text  
+  - Tabs for *History*, *Generator*
+  - LocalStorage for past replies (no server data)  
   - 🔐 Privacy-first design  
 
   ---
 
-  ### ⚙️ Tech
+  ### Tech
   React (Vite) · Chrome Extension (Manifest V3) · LocalStorage · Gemini API · Render
 
   ---
 
-  ### 🚀 Quick Start
+  ### Quick Start
   ```bash
   git clone https://github.com/icas00/AI-Email-Writer-frontend.git
   npm install
