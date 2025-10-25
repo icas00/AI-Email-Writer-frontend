@@ -1,16 +1,52 @@
-# React + Vite
+# 📧 Email Writer AI — Frontend (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An AI-powered Gmail assistant that helps users generate smart, polite, and context-aware replies — directly inside Gmail or from a standalone web app.
 
-Currently, two official plugins are available:
+🌍 **Live Demo:** [ai-email-writer-4rk4.onrender.com](https://ai-email-writer-4rk4.onrender.com/)  
+🧩 **Chrome Extension:** [Email Writer on Web Store](https://chromewebstore.google.com/detail/email-writer/nefgnkboedlacmpgbkgjoknjeigpppln)  
+⚙️ **Backend Repo:** [AI Email Writer Backend (Spring Boot)](https://github.com/icas00/AI-Email-Writer-backend)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This repository contains the **React (Vite)** frontend that powers both:
+- The **Chrome/Brave extension** — injected directly into Gmail’s interface.
+- The **standalone web application** — accessible via browser for testing and usage without Gmail.
 
-## Expanding the ESLint configuration
+Both versions use a common **Spring Boot backend** deployed on Render for AI response generation (via Gemini API).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧠 Key Features
+
+- 📨 **Gmail integration:** Floating “Generate Reply” button inside Gmail’s compose box.  
+- 🧠 **AI-powered responses:** Uses Gemini API to create tone-aware replies (*Professional*, *Friendly*, *Concise*).  
+- ⚡ **One-click copy:** Automatically copies generated text emails to clipboard (image-rich emails skipped).  
+- 🗂️ **Tabbed interface:** Switch between *History*, *Generator*, and *Settings*.  
+- 💾 **Local storage:** Saves previous replies directly in the browser (no server storage).  
+- 🔐 **Privacy-friendly:** No email data sent to servers; only user prompt and tone are processed.
+
+---
+
+## 🛠️ Tech Stack
+
+**Framework:** React (Vite)  
+**UI:** Custom floating popup + tab-based design  
+**AI Integration:** Gemini API (via backend endpoint `/generate`)  
+**Local Storage:** Browser LocalStorage for saved replies  
+**Browser APIs:** Chrome Extension Manifest V3  
+**Deployment:** Render (web version) · Chrome Web Store (extension)
+
+---
+
+## 🚀 Getting Started (Local Setup)
+
+### Prerequisites
+- Node.js ≥ 16
+- npm or yarn
+
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/icas00/AI-Email-Writer-frontend.git
+cd AI-Email-Writer-frontend
