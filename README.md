@@ -50,3 +50,10 @@ Both versions use a common **Spring Boot backend** deployed on Render for AI res
 ```bash
 git clone https://github.com/icas00/AI-Email-Writer-frontend.git
 cd AI-Email-Writer-frontend
+
+npm install
+
+npm run dev
+
+Visit http://localhost:5173
+
