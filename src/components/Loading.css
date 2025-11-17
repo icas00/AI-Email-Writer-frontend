@@ -1,26 +1,51 @@
-.loader-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
+/*
+  This is for the loading animation.
+  I wanted something more fun than just a spinner, so I made this "typing" thing.
+  It's just three dots that bounce up and down, kind of like when someone is typing in a chat.
+*/
+.loading-container {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-.loader {
-  border: 6px solid #f3f3f3;
-  border-top: 6px solid #6200ea;
+.typing-indicator {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* The actual dots */
+.typing-indicator span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 3px;
+  background-color: var(--blurple-light);
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
+  animation: bounce 1.4s infinite ease-in-out both;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+/*
+  This is the animation part.
+  I'm delaying the animation for each dot to make them bounce one after the other.
+  It's a simple trick but looks pretty cool.
+*/
+.typing-indicator span:nth-child(1) {
+  animation-delay: -0.32s;
 }
 
-.loader-container p {
-  margin-top: 10px;
-  font-style: italic;
-  color: #6200ea;
+.typing-indicator span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1.0);
+  }
 }

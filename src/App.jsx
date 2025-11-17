@@ -9,15 +9,17 @@ import History from './pages/History';
 function App() {
   return (
     <Router>
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/generate" element={<GenerateEmail />} />
-          <Route path="/history" element={<History />} />
-        </Routes>
-      </main>
-      <Footer />
+      <div className="app-container">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/generate" element={<GenerateEmail />} />
+            <Route path="/history" element={<History />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }

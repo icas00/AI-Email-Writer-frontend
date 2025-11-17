@@ -1,0 +1,48 @@
+/*
+  Styling for the new tone selector.
+  I wanted to make it look like a bunch of buttons you can press, not a boring dropdown.
+*/
+.tone-selector-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.tone-selector-container p {
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: var(--dark-gray);
+}
+
+.tone-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.tone-btn {
+  padding: 10px 20px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid var(--light-gray);
+  border-radius: 50px; /* This makes it pill-shaped */
+  background-color: #fff;
+  color: var(--dark-gray);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* This is the style for the button when you hover over it */
+.tone-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--blurple-light);
+}
+
+/* This is the style for the *active* button */
+.tone-btn.active {
+  background-color: var(--blurple);
+  color: #fff;
+  border-color: var(--blurple);
+  box-shadow: 0 4px 10px rgba(88, 101, 242, 0.3);
+}

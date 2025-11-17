@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 
 function Home() {
   return (
-    <div className="home-page">
-      <h2>Welcome to Email Writer AI</h2>
-      <p>Create professional and friendly emails in seconds with AI.</p>
-      <Link to="/generate" className="home-btn">Generate Email</Link>
+    <div className="container">
+      <div className="home-page">
+        <h2>Craft the perfect email, faster.</h2>
+        <p>Just jot down some ideas, pick a tone, and let AI handle the rest. It's like magic, but for your inbox.</p>
+        <Link to="/generate" className="home-btn">Start Generating</Link>
+      </div>
     </div>
   );
 }
