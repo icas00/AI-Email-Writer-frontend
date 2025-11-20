@@ -3,7 +3,7 @@ import './Loading.css';
 
 // Some fun messages to show while the AI is "thinking"
 const loadingMessages = [
-  'Brewing your email...',
+  'Fetching your email...',
   'Consulting the dictionary...',
   'Finding the right words...',
   'Doing some AI magic...',
@@ -17,10 +17,18 @@ function Loading() {
 
   return (
     <div className="loading-container">
-      <div className="typing-indicator">
-        <span></span>
-        <span></span>
-        <span></span>
+      <div className="envelope-animation">
+        <div className="envelope">
+          <div className="envelope-flap"></div>
+          <div className="envelope-body"></div>
+          <div className="letter"></div>
+        </div>
+        <div className="sparkles">
+          <span className="sparkle sparkle-1"></span>
+          <span className="sparkle sparkle-2"></span>
+          <span className="sparkle sparkle-3"></span>
+          <span className="sparkle sparkle-4"></span>
+        </div>
       </div>
       <p>{message}</p>
     </div>

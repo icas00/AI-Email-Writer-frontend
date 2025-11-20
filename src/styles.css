@@ -28,8 +28,15 @@ main {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* --- Header --- */
@@ -61,6 +68,7 @@ main {
   font-size: 28px;
   font-weight: 700;
   background: linear-gradient(45deg, var(--blurple), var(--blurple-light));
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -98,18 +106,99 @@ main {
 .home-page {
   text-align: center;
   padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating background particles */
+.home-page::before,
+.home-page::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(88, 101, 242, 0.1), rgba(114, 137, 218, 0.05));
+  z-index: -1;
+  animation: float 6s ease-in-out infinite;
+}
+
+.home-page::before {
+  width: 300px;
+  height: 300px;
+  top: -50px;
+  right: -50px;
+  animation-delay: 0s;
+}
+
+.home-page::after {
+  width: 200px;
+  height: 200px;
+  bottom: -30px;
+  left: -30px;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translateY(-20px) scale(1.05);
+    opacity: 0.5;
+  }
 }
 
 .home-page h2 {
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 20px;
+  animation: floatTitle 4s ease-in-out infinite, fadeInDown 0.8s ease-out;
+}
+
+@keyframes floatTitle {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .home-page p {
   font-size: 20px;
   color: #6c757d;
   margin-bottom: 40px;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .home-btn {
@@ -119,12 +208,47 @@ main {
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
-  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  animation: fadeInScale 1s ease-out 0.6s both;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.home-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.home-btn:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .home-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(88, 101, 242, 0.4);
+  background-color: var(--blurple-light);
 }
 
 
@@ -135,7 +259,8 @@ main {
   margin-bottom: 40px;
 }
 
-textarea, select {
+textarea,
+select {
   width: 100%;
   padding: 15px;
   border: 2px solid var(--light-gray);
@@ -146,7 +271,8 @@ textarea, select {
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-textarea:focus, select:focus {
+textarea:focus,
+select:focus {
   outline: none;
   border-color: var(--blurple);
   box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.2);
