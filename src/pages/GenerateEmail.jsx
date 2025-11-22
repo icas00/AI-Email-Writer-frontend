@@ -18,13 +18,18 @@ function GenerateEmail() {
     setEmailResponse(''); // Clear the old email
 
     try {
-      // --- This is where the magic happens ---
-      // I'm sending the user's text and the chosen tone to my backend.
-      const res = await fetch('https://ai-email-writer-backend-production.up.railway.app/email/generate', {
+      // UPDATED to the new Hugging Face backend URL.
+      const res = await fetch('https://icas00-my-backend.hf.space/email/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ emailContent: inputText, tone }),
       });
+
+      // This checks if the response from the backend is okay.
+      // If it's not (e.g., a 500 error), it will throw an error and go to the catch block.
+      if (!res.ok) {
+        throw new Error(`Backend returned an error: ${res.status}`);
+      }
 
       const data = await res.text();
       setEmailResponse(data);
@@ -39,7 +44,7 @@ function GenerateEmail() {
     } catch (err) {
       console.error(err);
       // Should probably show a nicer error message here, but this is fine for now.
-      alert('Oops! Something went wrong. Maybe try again?');
+      alert('Oops! Something went wrong.Try again?');
     } finally {
       // This `finally` block always runs, whether the try worked or failed.
       // It's a good place to stop the loading animation.
@@ -54,7 +59,7 @@ function GenerateEmail() {
             This makes the page look cleaner. */}
         
         <textarea
-          placeholder="e.g., 'Write an email to my professor asking for an extension on my paper...'"
+          placeholder="e.g., 'Write an email to boss asking for a raise....'"
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
           rows={7} // Made it a bit taller
